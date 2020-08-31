@@ -1,0 +1,74 @@
+.list_test{
+    width:90%;
+   /* height:100%;*/
+    border:0px;
+    margin:0 auto 0;
+    display:inline;
+}
+.list_test h3{
+    width:100%;
+    height:50px;
+    backgroup-color:#66CCFF;
+    border-bottom: 0px solid #ddd;
+    margin:0px auto;
+
+}
+.list_test h3 span a {
+    text-decoration:none;
+    color:#000;
+}
+.list_test h3 span a:hover{
+    color:red;
+}
+.list_test h3 span{
+    display:inline-block;
+    height:50px;
+    font: 18px/50px 'Microsoft Yahei';
+    color:#000;
+    border-bottom: 2px solid red;
+    padding:0px 15px;
+    position:relative;
+}
+.list_test ul{
+    list-style: none;
+    width:100%;
+    height:100%;
+    padding:0px;
+    margin:0px auto 0;
+    font-size:0;
+    overflow: hidden;
+    background: #99FFCC;
+
+}
+.list_test ul li{
+    height:10%;
+    border-bottom: 0px solid #ddd;
+    padding-top: 0px;
+    width:100%;
+}
+.list_test ul li a{
+    float:left;
+    height:38px;
+    width:100%;
+    font:18px/38px 'Microsoft Yahei';
+    text-decoration: none;
+    color:#000;
+}
+.list_test ul li a:before{
+    content: ". ";
+}
+.list_test ul li a:hover{
+    color:blue;
+}
+.list_test ul li span{
+    float:height;
+    height:38px;
+    font:12px/18px  "宋体";
+    /*text-decoration: none;*/
+    text-indent:2em;
+    margin:0px 20px 0px;
+    color:red;
+    width:100%;
+    /*margin-left: 60px;*/
+    /*display:inline;*/
+}

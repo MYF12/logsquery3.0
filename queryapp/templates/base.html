@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock title %} </title>
+    <link rel="stylesheet" type="text/css" href="../static/css/base.css">
+    {% block custom_css %}{% endblock custom_css %}
+</head>
+<body>
+<div class="first">
+    <h3 class="h"><a href="/">和留言运维开发系统</a></h3>
+</div>
+<div class="second">
+    {% block left %}{% endblock left%}
+</div>
+
+<div class="three">
+    {% block right %}{% endblock right %}
+</div>
+</body>
+</html>

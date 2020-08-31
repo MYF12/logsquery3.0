@@ -1,0 +1,33 @@
+{% extends 'queryapp/index.html' %}
+{% block custom_css %}
+	<link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/logs1.css" />
+{% endblock custom_css %}
+{% block right %}
+<font size="10">
+<div class="index">
+	<h style="font-size:30px;">查看组件日志切割格式</h><br>
+	<div style="text-align: center;font-size:18px;" >
+		如要查询slivr 的日志切割格式，则组件名：slivr 日志目录：/usr/local/vvm/slivr/logs
+	</div>
+    <form action="logsformatForm" method="post">
+		{%csrf_token%}
+        <input type="text" name="zjname" placeholder="请输入组件名或者IP" class="input" required/><br>
+		<input type="text" name="logsfile" placeholder="请输入要查询的日志目录完整路径" class="input" required/><br>
+        <input type="submit" name="提交" class="input"/>
+    </form>
+
+
+</div>
+</font>
+<p> 组件名：{{ zjname }}<br>
+	日志路径：{{logsfile}}<br>
+	{{ zjname }}组件日志格式 ：
+	{% if logs_file_name  %}
+	<a href="/downfile/?filename={{logs_file_name}}">日志格式查询输出文件下载</a><br>
+	{% endif %}
+	{% for filelines in result_content %}
+		{{ filelines }}<br>
+	{% endfor %}
+</p>
+{% endblock right %}

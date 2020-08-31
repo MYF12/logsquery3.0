@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}和留言运维开发系统{% endblock title %}
+{% block custom_css %}
+<link rel="stylesheet" href="../static/css/index.css" />
+{% endblock custom_css %}
+
+{% block left %}
+    <div class="list_test">
+<!--        <h3><span><a href="">和留言运维开发系统</a></span></h3>-->
+        <ul>
+            <li>
+                <a href={% url 'query1' %}>1、组件当天日志查询 </a></br>
+                <span>可查询实时日志或者当天其他小时日志，如info.log,</span>
+                <span>info.log.xxxx-xx-xx-xx等日志；也可以查询组件配置关键字</span>
+            </li>
+            <li>
+                <a href={% url 'logsnewcontent' %}>2、组件最新日志查询 </a><br>
+                <span>实际命令是tail -xx 文件路径</span><br>
+                <span>升级完之后想看组件有没报错，日志输出是否正常</span>
+            </li>
+            <li>
+                <a href={% url 'logsformat' %}>3、组件日志切割格式查询 </a><br>
+                <span>实际命令ls 日志路径 -rt|tail -30</span> <br>
+            <span>查询组件日志切割格式</span>
+            </li>
+            <li>
+                <a href="/">4、组件备份日志查询（未开发）</a><br>
+                <span>实际命令是：zcat xxxx.tar.gz |grep -a xxxxx</span>
+            </li>
+            <li>
+                <a href="/">5、查询组件结构（未开发）</a><br>
+                <span>实际命令：ls 组件完整路径</span>
+            </li>
+            <li>
+                <a href="/">6、组件配置查询（未开发） </a>
+                <span>实际命令：cat 组件配置完整路径</span> <br>
+                <span>要查询某个配置也可以使用第1点查询</span>
+            </li>
+        </ul>
+    </div>
+{% endblock left %}
+{% block right %}
+<p>有问题请联系运维部：yyxx-yunwei<13450288439@139.com></p>
+{% endblock right %}

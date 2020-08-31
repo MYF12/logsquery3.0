@@ -1,0 +1,39 @@
+{% extends 'queryapp/index.html' %}
+{% block custom_css %}
+        <link rel="stylesheet" href="../static/css/index.css" />
+    <link rel="stylesheet" href="../static/css/logs1.css" />
+{% endblock custom_css %}
+{% block right %}
+<font size="10">
+<div class="index">
+        <h style="font-size:30px;">查看组件最新输出日志</h><br>
+        <div style="text-align: center;font-size:18px;" >
+                如要查询slivr 最新100行日志，则组件名：slivr 日志路径：/usr/local/vvm/slivr/logs/info.log 最新日志行数：100
+        </div>
+    <form action="logsnewcontent1" method="post">
+                {%csrf_token%}
+        {% if zjname or  keywords or logsfile or hnum or tailhnum %}
+        <input type="text" name="zjname" placeholder="请输入组件名或者IP" value="{{zjname}}" class="input" required/><br>
+        <input type="text" name="logsfile" placeholder="请输入要查询的日志完整路径" value="{{logsfile}}" class="input" required/><br>
+        <input type="number" name="tailhnum" placeholder="请输入每台输出日志的行数，默认10行" value="{{tailhnum}}"  class="input"/><br>
+        {% else %}
+        <input type="text" name="zjname" placeholder="请输入组件名或者IP" class="input" required/><br>
+        <input type="text" name="logsfile" placeholder="请输入要查询的日志完整路径" class="input" required/><br>
+        <input type="number" name="tailhnum" placeholder="请输入每台输出日志的行数，默认10行"  class="input"/><br>
+        {% endif %}
+        <input type="submit" name="提交" class="input"/>
+    </form>
+</div>
+</font>
+<p> 组件名：{{ zjname }}<br>
+        日志路径：{{logsfile}}<br>
+        日志行数：{{tailhnum}}<br>
+        查询的日志结果是：
+        {% if logs_file_name  %}
+        <a href="/downfile/?filename={{logs_file_name}}">日志查询输出文件下载</a><br>
+        {% endif %}
+        {% for filelines in result_content %}
+                {{ filelines }}<br>
+        {% endfor %}
+</p>
+{% endblock right %}
